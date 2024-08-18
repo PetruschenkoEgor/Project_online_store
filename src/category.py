@@ -14,7 +14,8 @@ class Category:
         self.products = products
 
         # Количество категорий
-        Category.category_count += len(products)
+        Category.category_count += 1
         # Количество товаров
-        for product in products:
-            Category.product_count += product.quantity
+        # for product in products:
+        #     Category.product_count += product.quantity
+        Category.product_count += len(products)
