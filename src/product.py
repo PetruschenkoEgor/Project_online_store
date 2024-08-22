@@ -14,13 +14,23 @@ class Product:
         self.quantity = quantity
 
     @classmethod
-    def new_product(cls, new_product_dict, ):
+    def new_product(cls, new_product_dict, *products_list):
         """ Создает объекты класса Product """
-        name = new_product_dict.get("name")
-        description = new_product_dict.get("description")
-        price = new_product_dict.get("price")
-        quantity = new_product_dict.get("quantity")
-        return cls(name, description, price, quantity)
+        for product in products_list:
+            if new_product_dict.get("name") == product.get("name"):
+                name = new_product_dict.get("name")
+                description = new_product_dict.get("description")
+                quantity = new_product_dict.get("quantity") + product.get("quantity")
+                if new_product_dict.get("price") >= product.get("price"):
+                    price = new_product_dict.get("price")
+                else:
+                    price = product.get("price")
+            else:
+                name = new_product_dict.get("name")
+                description = new_product_dict.get("description")
+                price = new_product_dict.get("price")
+                quantity = new_product_dict.get("quantity")
+        return Product(**new_product_dict)
 
     @property
     def price(self):
@@ -29,8 +39,11 @@ class Product:
 
     @price.setter
     def price(self, new_price):
-        """ Изменяет цену """
+        """ Изменяет цену, проверяет, чтобы цена не была отрицательная, либо нулевая и меньше старой цены """
         if new_price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
         else:
-            self.__price = new_price
+            if self.__price > new_price:
+                input_price = input("Новая цена меньше старой! Введите 'y', чтобы поменять цену, или 'n' для отмены!").lower()
+                if input_price == 'y':
+                    self.__price = new_price

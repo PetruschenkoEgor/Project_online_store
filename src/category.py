@@ -34,3 +34,8 @@ class Category:
         for product in self.__products:
             product_list.append(f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.")
         return product_list
+
+    @property
+    def products_list(self):
+        """ Список товаров для проверки при добавлении нового товара(для new_product) """
+        return self.__products
