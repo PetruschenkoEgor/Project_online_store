@@ -28,3 +28,8 @@ def product_dict():
     return Product.new_product(
         {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
          "quantity": 5})
+
+
+@pytest.fixture
+def products():
+    return ['Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.', 'Iphone 15, 210000.0 руб. Остаток: 8 шт.', 'Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.']

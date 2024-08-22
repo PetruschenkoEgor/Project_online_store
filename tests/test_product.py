@@ -17,16 +17,34 @@ def test_product_new_product(product_dict):
     assert product_dict.quantity == 5
 
 
-# @patch('src.product.input')
-# def test_product_price(mock_input, product_dict):
-#     """ Тест на корректное изменение цены """
-#     product_dict.price = 800
-#     mock_input.return_value = 'n'
-#     assert product_dict.price == 180000.0
+def test_product_price_property(product_dict):
+    """ Тест - геттер """
+    assert product_dict.price == 180000.0
+    assert product_dict.name == "Samsung Galaxy S23 Ultra"
+    assert product_dict.description == "256GB, Серый цвет, 200MP камера"
+    assert product_dict.quantity == 5
 
-# @patch('src.product.input')
-def test_product_price_negative(product_dict):
-    """ Тест на корректное изменение цены """
-    product_dict.price = 190000.0
-    # mock_input.return_value = 'n'
-    assert product_dict.price == 190000.0
+
+def test_product_price_setter_negative(capsys, product_dict):
+    """ Тест - сеттер(отрицательная цена) """
+    new_product = product_dict
+    new_product.price = -800
+    message = capsys.readouterr()
+    assert new_product.price == 180000.0
+    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная!"
+
+
+@patch('src.product.input')
+def test_product_price_setter_less(mock_input, product_dict):
+    """ Тест - сеттер(новая цена меньше предыдущей) """
+    new_product = product_dict
+    new_product.price = 800
+    mock_input.return_value = 'n'
+    assert new_product.price == 180000.0
+
+
+def test_product_price_setter_more(product_dict):
+    """ Тест - сеттер(цена больше) """
+    new_product = product_dict
+    new_product.price = 190000.0
+    assert new_product.price == 190000.0

@@ -47,3 +47,5 @@ class Product:
                 input_price = input("Новая цена меньше старой! Введите 'y', чтобы поменять цену, или 'n' для отмены: ").lower()
                 if input_price == 'y':
                     self.__price = new_price
+            else:
+                self.__price = new_price
