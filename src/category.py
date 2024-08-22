@@ -26,7 +26,7 @@ class Category:
         return self.__products
 
     def add_product(self, *args):
-        """ Добавление нового товара """
+        """Добавление нового товара"""
         for arg in args:
             if type(arg) is Product:
                 self.__products.append(arg)
@@ -34,7 +34,7 @@ class Category:
 
     @property
     def products(self):
-        """ Показывает товары """
+        """Показывает товары"""
         product_list = []
         for product in self.__products:
             product_list.append(f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.")
@@ -42,5 +42,5 @@ class Category:
 
     @property
     def products_list(self):
-        """ Список товаров для проверки при добавлении нового товара(для new_product) """
+        """Список товаров для проверки при добавлении нового товара(для new_product)"""
         return self.__products
