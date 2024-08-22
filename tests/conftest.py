@@ -21,3 +21,10 @@ def category_1():
         "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
         ["product_1", "product_2"],
     )
+
+
+@pytest.fixture
+def product_dict():
+    return Product.new_product(
+        {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
+         "quantity": 5})

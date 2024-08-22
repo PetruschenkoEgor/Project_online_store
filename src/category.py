@@ -21,11 +21,16 @@ class Category:
         # Количество товаров
         Category.product_count += len(products)
 
+    @property
+    def products_(self):
+        return self.__products
+
     def add_product(self, *args):
         """ Добавление нового товара """
         for arg in args:
-            if type(arg) == Product:
+            if type(arg) is Product:
                 self.__products.append(arg)
+                Category.product_count += 1
 
     @property
     def products(self):
