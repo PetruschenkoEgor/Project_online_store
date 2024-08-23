@@ -35,10 +35,8 @@ class Category:
     @property
     def products(self):
         """Показывает товары"""
-        # product_list = []
-        for product in self.__products:
-            # product_list.append(f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.")
-            print(f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.")
+        return '\n'.join([f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт."
+                          for product in self.__products])
 
     @property
     def products_list(self):
