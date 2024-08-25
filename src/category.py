@@ -1,3 +1,6 @@
+from src.product import Product
+
+
 class Category:
     """Класс для представления категорий продуктов"""
 
@@ -11,11 +14,31 @@ class Category:
         """Метод для инициализации экземпляра класса"""
         self.name = name
         self.description = description
-        self.products = products
+        self.__products = products
 
         # Количество категорий
         Category.category_count += 1
         # Количество товаров
-        # for product in products:
-        #     Category.product_count += product.quantity
         Category.product_count += len(products)
+
+    @property
+    def products_(self):
+        return self.__products
+
+    def add_product(self, *args):
+        """Добавление нового товара"""
+        for arg in args:
+            if type(arg) is Product:
+                self.__products.append(arg)
+                Category.product_count += 1
+
+    @property
+    def products(self):
+        """Показывает товары"""
+        return '\n'.join([f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт."
+                          for product in self.__products])
+
+    @property
+    def products_list(self):
+        """Список товаров для проверки при добавлении нового товара(для new_product)"""
+        return self.__products
