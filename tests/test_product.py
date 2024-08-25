@@ -48,3 +48,13 @@ def test_product_price_setter_more(product_dict):
     new_product = product_dict
     new_product.price = 190000.0
     assert new_product.price == 190000.0
+
+
+def test_product_str(category_11):
+    """ Тест на правильное отображение строковой информации """
+    assert str(category_11) == "Смартфоны, количество продуктов: 13 шт."
+
+
+def test_product_add(product_1, product_2):
+    """ Тест на правильное сложение стоимости всех товаров """
+    assert product_1 + product_2 == 2580000.0
