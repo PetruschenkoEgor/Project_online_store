@@ -1,6 +1,7 @@
+import pytest
+
 from src.category import Category
 from src.product import Product
-import pytest
 
 
 def test_category_init(category_1, product_1, product_2):

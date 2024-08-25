@@ -50,7 +50,7 @@ def products():
 @pytest.fixture
 def category_11():
     product_1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0,
-                   5)
+                        5)
     product_2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     return Category(
         "Смартфоны",
