@@ -15,8 +15,12 @@ class Product:
 
     def __str__(self):
         """ Отображает строковое значение в нужном формате(название товара, цена и количество)
-        для геттера category\Category\products """
+        для геттера category -> Category -> products """
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other):
+        """ Полная стоимость всех товаров на складе """
+        return self.quantity * self.price + other.quantity * other.price
 
     @classmethod
     def new_product(cls, new_product_dict, *products_list):
