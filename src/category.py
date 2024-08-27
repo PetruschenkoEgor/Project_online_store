@@ -36,9 +36,11 @@ class Category:
     def add_product(self, *args):
         """Добавление нового товара"""
         for arg in args:
-            if type(arg) is Product:
+            if isinstance(arg, Product):
                 self.__products.append(arg)
                 Category.product_count += 1
+            else:
+                raise TypeError
 
     @property
     def products(self):
