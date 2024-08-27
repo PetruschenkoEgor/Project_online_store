@@ -18,12 +18,12 @@ class Product:
         self.quantity = quantity
 
     def __str__(self):
-        """ Отображает строковое значение в нужном формате(название товара, цена и количество)
-        для геттера category -> Category -> products """
+        """Отображает строковое значение в нужном формате(название товара, цена и количество)
+        для геттера category -> Category -> products"""
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        """ Полная стоимость всех товаров на складе """
+        """Полная стоимость всех товаров на складе"""
         if type(other) is Product:
             return self.quantity * self.price + other.quantity * other.price
         raise TypeError
