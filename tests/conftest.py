@@ -2,11 +2,13 @@ import pytest
 
 from src.category import Category
 from src.product import Product
+from src.product_iterator import ProductIterator
 
 
 @pytest.fixture
 def product_1():
-    return Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    return Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0,
+                   5)
 
 
 @pytest.fixture
@@ -18,7 +20,8 @@ def product_2():
 def category_1():
     return Category(
         "Смартфоны",
-        "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
+        "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций "
+        "для удобства жизни",
         ["product_1", "product_2"],
     )
 
@@ -42,3 +45,21 @@ def products():
         "Iphone 15, 210000.0 руб. Остаток: 8 шт.",
         "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.",
     ]
+
+
+@pytest.fixture
+def category_11():
+    product_1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0,
+                        5)
+    product_2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    return Category(
+        "Смартфоны",
+        "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций "
+        "для удобства жизни",
+        [product_1, product_2],
+    )
+
+
+@pytest.fixture
+def product_iterator(category_11):
+    return ProductIterator(category_11)
