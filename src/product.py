@@ -24,7 +24,9 @@ class Product:
 
     def __add__(self, other):
         """ Полная стоимость всех товаров на складе """
-        return self.quantity * self.price + other.quantity * other.price
+        if type(other) is Product:
+            return self.quantity * self.price + other.quantity * other.price
+        raise TypeError
 
     @classmethod
     def new_product(cls, new_product_dict, *products_list):

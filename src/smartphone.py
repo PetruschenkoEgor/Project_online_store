@@ -14,3 +14,9 @@ class Smartphone(Product):
         self.memory = memory
         # Цвет
         self.color = color
+
+    def __add__(self, other):
+        """ Полная стоимость всех товаров категории Смартфонов на складе """
+        if type(other) is Smartphone:
+            return self.quantity * self.price + other.quantity * other.price
+        raise TypeError
