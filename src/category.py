@@ -12,8 +12,11 @@ class Category:
 
     def __init__(self, name, description, products):
         """Метод для инициализации экземпляра класса"""
+        # Название
         self.name = name
+        # Описание
         self.description = description
+        # Список товаров категории
         self.__products = products
 
         # Количество категорий

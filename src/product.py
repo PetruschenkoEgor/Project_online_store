@@ -8,9 +8,13 @@ class Product:
 
     def __init__(self, name, description, price, quantity):
         """Метод для инициализации экземпляра класса"""
+        # Название
         self.name = name
+        # Описание
         self.description = description
+        # Цена
         self.__price = price
+        # Количество в наличии
         self.quantity = quantity
 
     def __str__(self):
