@@ -34,13 +34,20 @@ def test_product_price_setter_negative(capsys, product_dict):
     assert message.out.strip() == "Цена не должна быть нулевая или отрицательная!"
 
 
-@patch("src.product.input")
+@patch("builtins.input", return_value="n")
 def test_product_price_setter_less(mock_input, product_dict):
     """Тест - сеттер(новая цена меньше предыдущей)"""
     new_product = product_dict
     new_product.price = 800
-    mock_input.return_value = "n"
     assert new_product.price == 180000.0
+
+
+@patch("builtins.input", return_value="y")
+def test_product_price_setter_less_(mock_input, product_dict):
+    """Тест - сеттер(новая цена меньше предыдущей)"""
+    new_product = product_dict
+    new_product.price = 800
+    assert new_product.price == 800
 
 
 def test_product_price_setter_more(product_dict):

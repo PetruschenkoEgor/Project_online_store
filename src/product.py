@@ -33,8 +33,7 @@ class Product:
         """Создает объекты класса Product"""
         # for product in products_list:
         #     if new_product_dict.get("name") == product.get("name"):
-        #         name = new_product_dict.get("name")
-        #         description = new_product_dict.get("description")
+
         #         quantity = new_product_dict.get("quantity") + product.get("quantity")
         #         if new_product_dict.get("price") >= product.get("price"):
         #             price = new_product_dict.get("price")
