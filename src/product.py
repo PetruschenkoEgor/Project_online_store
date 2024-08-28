@@ -32,20 +32,21 @@ class Product:
     def new_product(cls, new_product_dict, *products_list):
         """Создает объекты класса Product"""
         # for product in products_list:
-        #     if new_product_dict.get("name") == product.get("name"):
-
-        #         quantity = new_product_dict.get("quantity") + product.get("quantity")
+        #     if new_product_dict.get("name") in product:
+        #         # name = new_product_dict.get("name")
+        #         # description = new_product_dict.get("description")
+        #         quantity = new_product_dict.get("quantity") + product[3]
         #         if new_product_dict.get("price") >= product.get("price"):
         #             price = new_product_dict.get("price")
         #         else:
         #             price = product.get("price")
-        #         # return Product(name, description, price, quantity)
+        #         return Product(**new_product_dict)
         #     else:
         #         name = new_product_dict.get("name")
         #         description = new_product_dict.get("description")
         #         price = new_product_dict.get("price")
         #         quantity = new_product_dict.get("quantity")
-        #         # return Product(name, description, price, quantity)
+        #         return Product(**new_product_dict)
         return Product(**new_product_dict)
 
     @property
