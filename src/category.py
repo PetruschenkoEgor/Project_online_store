@@ -12,8 +12,11 @@ class Category:
 
     def __init__(self, name, description, products):
         """Метод для инициализации экземпляра класса"""
+        # Название
         self.name = name
+        # Описание
         self.description = description
+        # Список товаров категории
         self.__products = products
 
         # Количество категорий
@@ -22,27 +25,29 @@ class Category:
         Category.product_count += len(products)
 
     def __str__(self):
-        """ Общее количество продуктов категории(строковое значение) """
+        """Общее количество продуктов категории(строковое значение)"""
         return f"{self.name}, количество продуктов: {sum([product.quantity for product in self.__products])} шт."
 
     @property
     def products_(self):
-        """ Геттер для __products """
+        """Геттер для __products"""
         return self.__products
 
     def add_product(self, *args):
         """Добавление нового товара"""
         for arg in args:
-            if type(arg) is Product:
+            if isinstance(arg, Product):
                 self.__products.append(arg)
                 Category.product_count += 1
+            else:
+                raise TypeError
 
     @property
     def products(self):
         """Показывает товары"""
         # return '\n'.join([f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт."
         #                   for product in self.__products])
-        return '\n'.join([f"{str(product)}" for product in self.__products])
+        return "\n".join([f"{str(product)}" for product in self.__products])
 
     @property
     def products_list(self):

@@ -17,8 +17,8 @@ def test_category_init(category_1, product_1, product_2):
     assert category_1.product_count == 2
 
 
-def test_add_product(product_1, product_2):
-    """Тест на добавление нового товара"""
+def test_add_product_len(product_1, product_2):
+    """Тест на добавление нового товара, если товары одного класса, изменение длины списка"""
     category1 = Category(
         "Смартфоны",
         "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для "
@@ -30,6 +30,12 @@ def test_add_product(product_1, product_2):
     assert len(category1.products_) == 4
     category1.add_product(product_2)
     assert len(category1.products_) == 5
+
+
+def test_add_product_no_class(category_11):
+    """Тест на добавление нового товара, если товары не одного класса и не классов наследников"""
+    with pytest.raises(TypeError):
+        result = category_11.add_product("lffera")
 
 
 def test_products_property(products):

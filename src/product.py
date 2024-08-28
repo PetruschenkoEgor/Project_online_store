@@ -8,39 +8,45 @@ class Product:
 
     def __init__(self, name, description, price, quantity):
         """Метод для инициализации экземпляра класса"""
+        # Название
         self.name = name
+        # Описание
         self.description = description
+        # Цена
         self.__price = price
+        # Количество в наличии
         self.quantity = quantity
 
     def __str__(self):
-        """ Отображает строковое значение в нужном формате(название товара, цена и количество)
-        для геттера category -> Category -> products """
+        """Отображает строковое значение в нужном формате(название товара, цена и количество)
+        для геттера category -> Category -> products"""
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        """ Полная стоимость всех товаров на складе """
-        return self.quantity * self.price + other.quantity * other.price
+        """Полная стоимость всех товаров на складе"""
+        if type(other) is Product:
+            return self.quantity * self.price + other.quantity * other.price
+        raise TypeError
 
     @classmethod
     def new_product(cls, new_product_dict, *products_list):
         """Создает объекты класса Product"""
         # for product in products_list:
-        #     if new_product_dict.get("name") == product.get("name"):
-        #         name = new_product_dict.get("name")
-        #         description = new_product_dict.get("description")
-        #         quantity = new_product_dict.get("quantity") + product.get("quantity")
+        #     if new_product_dict.get("name") in product:
+        #         # name = new_product_dict.get("name")
+        #         # description = new_product_dict.get("description")
+        #         quantity = new_product_dict.get("quantity") + product[3]
         #         if new_product_dict.get("price") >= product.get("price"):
         #             price = new_product_dict.get("price")
         #         else:
         #             price = product.get("price")
-        #         # return Product(name, description, price, quantity)
+        #         return Product(**new_product_dict)
         #     else:
         #         name = new_product_dict.get("name")
         #         description = new_product_dict.get("description")
         #         price = new_product_dict.get("price")
         #         quantity = new_product_dict.get("quantity")
-        #         # return Product(name, description, price, quantity)
+        #         return Product(**new_product_dict)
         return Product(**new_product_dict)
 
     @property

@@ -4,12 +4,12 @@ class ProductIterator:
         self.index = 0
 
     def __iter__(self):
-        """ Возвращает итератор """
+        """Возвращает итератор"""
         self.index = 0
         return self
 
     def __next__(self):
-        """ Возвращает следующий элемент последовательности """
+        """Возвращает следующий элемент последовательности"""
         if self.index < len(self.category.products_list):
             product = self.category.products_list[self.index]
             self.index += 1
