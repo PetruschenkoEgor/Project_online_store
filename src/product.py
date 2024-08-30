@@ -20,6 +20,7 @@ class Product(BaseProduct, PrintMixin):
         self.__price = price
         # Количество в наличии
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         """Отображает строковое значение в нужном формате(название товара, цена и количество)
