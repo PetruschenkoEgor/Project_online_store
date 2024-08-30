@@ -1,5 +1,7 @@
 class ProductIterator:
+    """ Класс для создания итератора """
     def __init__(self, product_obj):
+        """ Конструктор класса ProductIterator """
         self.category = product_obj
         self.index = 0
 

@@ -1,6 +1,7 @@
 class PrintMixin:
     """ Класс-миксин """
     def __init__(self):
+        """ Конструктор класса PrintMixin """
         print(repr(self))
 
     def __repr__(self):

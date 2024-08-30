@@ -11,7 +11,7 @@ class Product(BaseProduct, PrintMixin):
     quantity: int
 
     def __init__(self, name, description, price, quantity):
-        """Метод для инициализации экземпляра класса"""
+        """Конструктор класса Product"""
         # Название
         self.name = name
         # Описание
