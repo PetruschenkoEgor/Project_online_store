@@ -31,7 +31,7 @@ def test_product_price_setter_negative(capsys, product_dict):
     new_product.price = -800
     message = capsys.readouterr()
     assert new_product.price == 180000.0
-    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная!"
+    assert message.out.strip().split("\n")[-1] == "Цена не должна быть нулевая или отрицательная!"
 
 
 @patch("builtins.input", return_value="n")

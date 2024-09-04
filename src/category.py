@@ -1,7 +1,8 @@
 from src.product import Product
+from src.base_category_order import BaseCategoryOrder
 
 
-class Category:
+class Category(BaseCategoryOrder):
     """Класс для представления категорий продуктов"""
 
     name: str
@@ -11,7 +12,7 @@ class Category:
     product_count = 0
 
     def __init__(self, name, description, products):
-        """Метод для инициализации экземпляра класса"""
+        """Конструктор класса Category"""
         # Название
         self.name = name
         # Описание
