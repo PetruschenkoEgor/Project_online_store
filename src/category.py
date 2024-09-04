@@ -54,3 +54,10 @@ class Category(BaseCategoryOrder):
     def products_list(self):
         """Список товаров для проверки при добавлении нового товара(для new_product)"""
         return self.__products
+
+    def middle_price(self):
+        """ Подсчет среднего ценника всех товаров """
+        try:
+            return round(sum([product.price for product in self.__products]) / len(self.__products), 2)
+        except ZeroDivisionError:
+            return "0"
