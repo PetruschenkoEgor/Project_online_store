@@ -25,7 +25,6 @@ class Product(BaseProduct, PrintMixin):
             raise ValueError("Товар с нулевым количеством не может быть добавлен")
         super().__init__()
 
-
     def __str__(self):
         """Отображает строковое значение в нужном формате(название товара, цена и количество)
         для геттера category -> Category -> products"""
