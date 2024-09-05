@@ -1,4 +1,5 @@
 from src.base_category_order import BaseCategoryOrder
+from src.exceptions import ZeroQuantityProduct
 
 
 class Order(BaseCategoryOrder):
@@ -20,7 +21,17 @@ class Order(BaseCategoryOrder):
 
     def total_price(self):
         """ Итоговая стоимость заказа """
-        return self.quantity * self.price
+        try:
+            if self.quantity == 0:
+                raise ZeroQuantityProduct("Нельзя добавлять товар с нулевым количеством")
+        except ZeroQuantityProduct as e:
+            print(e)
+        else:
+            print("Товар добавлен успешно")
+            return self.quantity * self.price
+        finally:
+            print("Обработка добавления товара завершена")
+        # return self.quantity * self.price
 
     def __str__(self):
         """ Выводит информацию о заказанном товаре """
